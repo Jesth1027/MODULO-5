@@ -321,6 +321,7 @@
     <Content Include="Views\usuarios\Edit.cshtml" />
     <Content Include="Views\usuarios\Index.cshtml" />
     <Content Include="scss\style.scss" />
+    <Content Include="Views\menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
