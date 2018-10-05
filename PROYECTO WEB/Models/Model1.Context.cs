@@ -15,10 +15,10 @@ namespace PROYECTO_WEB.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class webEntities : DbContext
+    public partial class webEntities1 : DbContext
     {
-        public webEntities()
-            : base("name=webEntities")
+        public webEntities1()
+            : base("name=webEntities1")
         {
         }
     
@@ -40,6 +40,7 @@ namespace PROYECTO_WEB.Models
         public virtual DbSet<nota_debito_cc> nota_debito_cc { get; set; }
         public virtual DbSet<nota_debito_cp> nota_debito_cp { get; set; }
         public virtual DbSet<saldos> saldos { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
         public virtual DbSet<list_cheque> list_cheque { get; set; }
         public virtual DbSet<list_cheque_anulado> list_cheque_anulado { get; set; }
@@ -208,7 +209,7 @@ namespace PROYECTO_WEB.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual int sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
+        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
                 new ObjectParameter("diagramname", diagramname) :
@@ -218,10 +219,10 @@ namespace PROYECTO_WEB.Models
                 new ObjectParameter("owner_id", owner_id) :
                 new ObjectParameter("owner_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual int sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
+        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
                 new ObjectParameter("diagramname", diagramname) :
@@ -231,7 +232,7 @@ namespace PROYECTO_WEB.Models
                 new ObjectParameter("owner_id", owner_id) :
                 new ObjectParameter("owner_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
         }
     
         public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
