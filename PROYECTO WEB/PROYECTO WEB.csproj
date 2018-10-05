@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -151,6 +159,96 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\asign_cheque_cp.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\buscar_user_Result.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\desposito.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\gest_cheque.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\gest_cliente.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\gest_cuenta.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\gest_factura.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\gest_proveedor.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\list_cheque.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\list_cheque_anulado.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\list_cheque_IMPRESO.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\list_cheque_sin_usar.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\list_cliente.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\list_cuenta.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\list_factura.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\list_factura_impreso.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\list_factura_nulo.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\list_factura_sin_usar.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelWEB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelWEB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelWEB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelWEB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelWEB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mov_factura_credito.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mov_factura_pagos.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mov_trasf_cuenta.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\nota_debito_cc.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\nota_debito_cp.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\saldos.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usuario.cs">
+      <DependentUpon>ModelWEB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,14 +256,37 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\arrow.png" />
+    <Content Include="images\bg3.jpg" />
+    <Content Include="images\mail.png" />
+    <Content Include="images\pass.png" />
+    <Content Include="index.html" />
+    <Content Include="Models\ModelWEB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelWEB.Context.cs</LastGenOutput>
+      <DependentUpon>ModelWEB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ModelWEB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelWEB.edmx</DependentUpon>
+      <LastGenOutput>ModelWEB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\ModelWEB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelWEB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelWEB.edmx.diagram">
+      <DependentUpon>ModelWEB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -188,14 +309,14 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Layout_inicio.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -209,6 +330,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
