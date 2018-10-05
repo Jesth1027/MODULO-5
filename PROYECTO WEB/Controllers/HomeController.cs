@@ -14,24 +14,6 @@ namespace PROYECTO_WEB.Controllers
     {
         private webEntities1 db = new webEntities1();
 
-        public ActionResult Index()
-        {
-            return View("Login");
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
 
         public ActionResult Login()
         {
@@ -44,31 +26,42 @@ namespace PROYECTO_WEB.Controllers
         {
             buscar_user_Result u = db.buscar_user(usuario.usuario1, usuario.password).FirstOrDefault();
 
-            //insertar
-            //try
-            //{
-            //    usuario.id = 2;
-            //    usuario.nombre = "Tarzan";
-            //    usuario.puesto = "Rey de la selva";
-
-            //    db.usuario.Add(usuario);
-            //    db.SaveChanges();
-            //}
-            //catch (Exception ex)
-            //{
-            //    ModelState.AddModelError("Eror", ex.Message);
-            //    return View();
-            //}
-
+            
 
             if (u == null)//si no existe el usuario
             {
                 ModelState.AddModelError("Eror", "Usuario o Contraseña Incorrectos.");
                 return View();
             }
-
-            return View();//redirigir a vista con layout menu
+            Session["usuario"] = u.usuario;
+            Session["id"] = u.id;
+            Session["nombre"] = u.nombre;
+            Session["puesto"] = u.puesto;
+            return View("menu");//redirigir a vista con layout menu
         }
+
+  
+
+
+
+
+
+        //insertar
+        //try
+        //{
+        //    usuario.id = 2;
+        //    usuario.nombre = "Tarzan";
+        //    usuario.puesto = "Rey de la selva";
+
+        //    db.usuario.Add(usuario);
+        //    db.SaveChanges();
+        //}
+        //catch (Exception ex)
+        //{
+        //    ModelState.AddModelError("Eror", ex.Message);
+        //    return View();
+        //}
+
 
     }
 }
