@@ -20,7 +20,13 @@ namespace PROYECTO_WEB.Controllers
             return View();
         }
 
-        
+
+
+        public ActionResult cheque()
+        {
+           return PartialView("~/views/gest_cheque/Index.cshtml");
+        }
+
         [HttpPost]
         public ActionResult Login([Bind(Include = "usuario1,password")] usuario usuario)
         {

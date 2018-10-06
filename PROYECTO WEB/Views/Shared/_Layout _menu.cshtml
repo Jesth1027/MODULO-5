@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿
+@model PROYECTO_WEB.Models.gest_cheque
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,24 +16,22 @@
 <body>
     <div data-component="navbar">
         <nav class="navbar p-0 fixed-top">
-            <button class="navbar-toggler navbar-toggler-left rounded-0 border-0" type="button" data-toggle="collapse" data-target="#megamenu-dropdown" aria-controls="megamenu-dropdown" aria-expanded="false" aria-label="Toggle navigation">
-         
-            </button>
+            <button class="navbar-toggler navbar-toggler-left rounded-0 border-0" type="button" data-toggle="collapse" data-target="#megamenu-dropdown" aria-controls="megamenu-dropdown" aria-expanded="false" aria-label="Toggle navigation"></button>
 
             <div>
                 <a class="navbar-brand px-1" href="#"><img src="http://kris.agentfire2.com/wp-content/mu-plugins/agentfire-shared-library/img/agentfire.svg" class="d-inline-block mt-1" alt="AgentFire Logo" height="40"></a>
                 <div class="right-links float-right mr-4">
 
                     <div class="d-inline dropdown rounded-0 mx-3">
-                 
+
                         <div class="dropdown-menu dropdown-menu-right rounded-0 text-center" aria-labelledby="tools">
-                    
+
                         </div>
                     </div> <!-- /.dropdown -->
 
                     <div class="d-inline dropdown mr-3">
-              
-                      <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0" aria-labelledby="notifications">
+
+                        <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0" aria-labelledby="notifications">
                             <div class="list-group">
                                 <div class="lg">
                                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
@@ -79,7 +80,7 @@
                     </div> <!-- /.dropdown -->
 
                     <div class="d-inline dropdown mr-3">
-    
+
                         <div class="dropdown-menu dropdown-menu-right rounded-0 text-center" aria-labelledby="messages">
                             <a class="dropdown-item">There are no new messages</a>
                         </div> <!-- /.dropdown-menu -->
@@ -87,16 +88,17 @@
 
 
                     <div class="d-inline dropdown">
-                        <a class="dropdown-toggle" id="messages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"> 
+                        <a class="dropdown-toggle" id="messages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                             <img src="http://1.gravatar.com/avatar/47db31bd2e0b161008607d84c74305b5?s=96&d=mm&r=g">
                         </a>
-                        <a >
-                        <style =color: FF0000>
-                        </style> @Session["nombre"] </a>
-                       
-                        <div class="dropdown-menu dropdown-menu-right rounded-0" aria-labelledby="messages" > 
-                   
-                       
+                        <a>
+                            <style =color: FF0000>
+                            </style> @Session["nombre"]
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right rounded-0" aria-labelledby="messages">
+
+
                         </div> <!-- /.dropdown-menu -->
                     </div> <!-- /.dropdown -->
 
@@ -118,21 +120,21 @@
 
                     <ul class="list-group flex-column d-inline-block submenu">
                         <li class="list-group-item pl-4">
-                            <a href="#" class="">Cheques</a>
+                        @Html.ActionLink("Contacto", "Create", "gest_cheque")
 
-                            <ul class="list-group flex-column d-inline-block sub-submenu">
-                                <span class="arrow"></span>
-                                <li class="list-group-item pl-4">
-                                    <a href="#">Ingreso de Cheques</a>
-                                </li>
-                                <li class="list-group-item pl-4">
-                                    <a href="#">Asignación de Cheques</a>
-                                </li>
+                        <ul class="list-group flex-column d-inline-block sub-submenu">
+                            <span class="arrow"></span>
+                            <li class="list-group-item pl-4">
+                                <a href="#">Ingreso de Cheques</a>
+                            </li>
+                            <li class="list-group-item pl-4">
+                                <a href="#">Asignación de Cheques</a>
+                            </li>
 
 
-                            </ul>
+                        </ul>
 
-                        </li>
+</li>
 
 
 
@@ -180,7 +182,7 @@
 
 
                 <li class="list-group-item pl-3 py-2">
-                    <a href="#"><i class="fa fa-user-o" aria-hidden="true"><span class="ml-2 align-middle">Cuentas <br>por Cobrar<br/></span></i></a>
+                    <a href="#"><i class="fa fa-user-o" aria-hidden="true"><span class="ml-2 align-middle">Cuentas <br>por Cobrar<br /></span></i></a>
                     <ul class="list-group flex-column d-inline-block submenu">
                         <li class="list-group-item pl-4">
                             <a href="#" class=""></a>
@@ -195,7 +197,7 @@
                                 </li>
 
 
-                             
+
                             </ul>
                         </li> <!-- end Posts -->
 
@@ -207,7 +209,7 @@
                                 <li class="list-group-item pl-4">
                                     <a href="#">Pagos</a>
                                 </li>
-                                
+
                                 <li class="list-group-item pl-4">
                                     <a href="#">Add New Feed Source</a>
                                 </li>
@@ -223,12 +225,12 @@
                                 <li class="list-group-item pl-4">
                                     <a href="#">Ingreso al sistema</a>
                                 </li>
-                              
+
                             </ul>
                         </li> <!-- end Pages -->
 
 
-                       
+
 
                         <li class="list-group-item pl-4">
                             <a href="#" class="">Team Members</a>
@@ -257,7 +259,7 @@
                                     <a href="#">Add New Location</a>
                                 </li>
                             </ul>
-                        </li> 
+                        </li>
 
                     </ul> <!-- /.submenu -->
                 </li> <!---------------------------------------------- FIN MODULO CUENTAS COBRAR ---------------------------------------------------->
@@ -265,7 +267,7 @@
 
 
                 <li class="list-group-item pl-3 py-2">
-                    <a href="#"><i class="fa fa-user-o" aria-hidden="true"><span class="ml-2 align-middle">Cuentas <br>por Pagar<br/></span></i></a>
+                    <a href="#"><i class="fa fa-user-o" aria-hidden="true"><span class="ml-2 align-middle">Cuentas <br>por Pagar<br /></span></i></a>
 
                     <ul class="list-group flex-column d-inline-block submenu">
                         <li class="list-group-item pl-4">
@@ -469,7 +471,7 @@
                     </ul>
 
                 </li>
-            @* clientes FIN *@
+                @* clientes FIN *@
 
 
 
