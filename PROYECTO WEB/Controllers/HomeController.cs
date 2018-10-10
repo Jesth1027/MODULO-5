@@ -12,7 +12,7 @@ namespace PROYECTO_WEB.Controllers
 {
     public class HomeController : Controller
     {
-        private webEntities1 db = new webEntities1();
+        private webEntities2 db = new webEntities2();
 
 
         public ActionResult Login()
@@ -48,25 +48,11 @@ namespace PROYECTO_WEB.Controllers
 
   
 
+        //
 
 
 
-
-        //insertar
-        //try
-        //{
-        //    usuario.id = 2;
-        //    usuario.nombre = "Tarzan";
-        //    usuario.puesto = "Rey de la selva";
-
-        //    db.usuario.Add(usuario);
-        //    db.SaveChanges();
-        //}
-        //catch (Exception ex)
-        //{
-        //    ModelState.AddModelError("Eror", ex.Message);
-        //    return View();
-        //}
+   
 
 
     }

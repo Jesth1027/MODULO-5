@@ -8,109 +8,110 @@ using System.Web;
 using System.Web.Mvc;
 using PROYECTO_WEB.Models;
 
+
 namespace PROYECTO_WEB.Controllers
 {
-    public class usuariosController : Controller
+    public class gest_clienteController : Controller
     {
         private webEntities2 db = new webEntities2();
 
-        // GET: usuarios
+        // GET: gest_cliente
         public ActionResult Index()
         {
-            return View(db.usuario.ToList());
+            return View(db.gest_cliente.ToList());
         }
 
-        // GET: usuarios/Details/5
+        // GET: gest_cliente/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            usuario usuario = db.usuario.Find(id);
-            if (usuario == null)
+            gest_cliente gest_cliente = db.gest_cliente.Find(id);
+            if (gest_cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(gest_cliente);
         }
 
-        // GET: usuarios/Create
+        // GET: gest_cliente/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: usuarios/Create
+        // POST: gest_cliente/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nombre,usuario1,password,puesto")] usuario usuario)
+        public ActionResult Create([Bind(Include = "nit,nombre,telefono,direccion,codigo,fecha")] gest_cliente gest_cliente)
         {
             if (ModelState.IsValid)
             {
-                db.usuario.Add(usuario);
+                db.gest_cliente.Add(gest_cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(usuario);
+            return View(gest_cliente);
         }
 
-        // GET: usuarios/Edit/5
+        // GET: gest_cliente/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            usuario usuario = db.usuario.Find(id);
-            if (usuario == null)
+            gest_cliente gest_cliente = db.gest_cliente.Find(id);
+            if (gest_cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(gest_cliente);
         }
 
-        // POST: usuarios/Edit/5
+        // POST: gest_cliente/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nombre,usuario1,password,puesto")] usuario usuario)
+        public ActionResult Edit([Bind(Include = "nit,nombre,telefono,direccion,codigo,fecha")] gest_cliente gest_cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuario).State = EntityState.Modified;
+                db.Entry(gest_cliente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(usuario);
+            return View(gest_cliente);
         }
 
-        // GET: usuarios/Delete/5
+        // GET: gest_cliente/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            usuario usuario = db.usuario.Find(id);
-            if (usuario == null)
+            gest_cliente gest_cliente = db.gest_cliente.Find(id);
+            if (gest_cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(gest_cliente);
         }
 
-        // POST: usuarios/Delete/5
+        // POST: gest_cliente/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            usuario usuario = db.usuario.Find(id);
-            db.usuario.Remove(usuario);
+            gest_cliente gest_cliente = db.gest_cliente.Find(id);
+            db.gest_cliente.Remove(gest_cliente);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -12,7 +12,7 @@ namespace PROYECTO_WEB.Controllers
 {
     public class gest_chequeController : Controller
     {
-        private webEntities1 db = new webEntities1();
+        private webEntities2 db = new webEntities2();
 
         // GET: gest_cheque
         public ActionResult Index()
@@ -39,8 +39,8 @@ namespace PROYECTO_WEB.Controllers
         // GET: gest_cheque/Create
         public ActionResult Create()
         {
-            ViewBag.serie = new SelectList(db.asign_cheque_cp, "serie", "pago_a_orden");
-            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "banco");
+            ViewBag.banco = new SelectList(db.asign_cheque_cp, "No_cuenta", "banco");
+            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "No_cuenta");
             return View();
         }
 

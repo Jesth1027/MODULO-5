@@ -10,107 +10,107 @@ using PROYECTO_WEB.Models;
 
 namespace PROYECTO_WEB.Controllers
 {
-    public class usuariosController : Controller
+    public class gest_cuentaController : Controller
     {
         private webEntities2 db = new webEntities2();
 
-        // GET: usuarios
+        // GET: gest_cuenta
         public ActionResult Index()
         {
-            return View(db.usuario.ToList());
+            return View(db.gest_cuenta.ToList());
         }
 
-        // GET: usuarios/Details/5
-        public ActionResult Details(int? id)
+        // GET: gest_cuenta/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            usuario usuario = db.usuario.Find(id);
-            if (usuario == null)
+            gest_cuenta gest_cuenta = db.gest_cuenta.Find(id);
+            if (gest_cuenta == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(gest_cuenta);
         }
 
-        // GET: usuarios/Create
+        // GET: gest_cuenta/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: usuarios/Create
+        // POST: gest_cuenta/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nombre,usuario1,password,puesto")] usuario usuario)
+        public ActionResult Create([Bind(Include = "correlativo,No_cuenta,banco,tipo,fecha")] gest_cuenta gest_cuenta)
         {
             if (ModelState.IsValid)
             {
-                db.usuario.Add(usuario);
+                db.gest_cuenta.Add(gest_cuenta);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(usuario);
+            return View(gest_cuenta);
         }
 
-        // GET: usuarios/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: gest_cuenta/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            usuario usuario = db.usuario.Find(id);
-            if (usuario == null)
+            gest_cuenta gest_cuenta = db.gest_cuenta.Find(id);
+            if (gest_cuenta == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(gest_cuenta);
         }
 
-        // POST: usuarios/Edit/5
+        // POST: gest_cuenta/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nombre,usuario1,password,puesto")] usuario usuario)
+        public ActionResult Edit([Bind(Include = "correlativo,No_cuenta,banco,tipo,fecha")] gest_cuenta gest_cuenta)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuario).State = EntityState.Modified;
+                db.Entry(gest_cuenta).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(usuario);
+            return View(gest_cuenta);
         }
 
-        // GET: usuarios/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: gest_cuenta/Delete/5
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            usuario usuario = db.usuario.Find(id);
-            if (usuario == null)
+            gest_cuenta gest_cuenta = db.gest_cuenta.Find(id);
+            if (gest_cuenta == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(gest_cuenta);
         }
 
-        // POST: usuarios/Delete/5
+        // POST: gest_cuenta/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            usuario usuario = db.usuario.Find(id);
-            db.usuario.Remove(usuario);
+            gest_cuenta gest_cuenta = db.gest_cuenta.Find(id);
+            db.gest_cuenta.Remove(gest_cuenta);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
