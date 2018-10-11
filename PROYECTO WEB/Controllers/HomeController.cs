@@ -12,7 +12,7 @@ namespace PROYECTO_WEB.Controllers
 {
     public class HomeController : Controller
     {
-        private webEntities2 db = new webEntities2();
+        private webEntities1 db = new webEntities1();
 
 
         public ActionResult Login()

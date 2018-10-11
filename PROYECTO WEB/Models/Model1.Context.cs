@@ -15,10 +15,10 @@ namespace PROYECTO_WEB.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class webEntities2 : DbContext
+    public partial class webEntities1 : DbContext
     {
-        public webEntities2()
-            : base("name=webEntities2")
+        public webEntities1()
+            : base("name=webEntities1")
         {
         }
     
@@ -55,7 +55,7 @@ namespace PROYECTO_WEB.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<buscar_user_Result>("buscar_user", userParameter, passParameter);
         }
     
-        public virtual ObjectResult<Nullable<decimal>> insert_cheque(Nullable<int> serie, Nullable<System.DateTime> ingreso, string banco, string cuenta, string estado, string moneda)
+        public virtual int insert_cheque(Nullable<int> serie, Nullable<System.DateTime> ingreso, string banco, string cuenta, string estado, string moneda)
         {
             var serieParameter = serie.HasValue ?
                 new ObjectParameter("serie", serie) :
@@ -81,7 +81,7 @@ namespace PROYECTO_WEB.Models
                 new ObjectParameter("moneda", moneda) :
                 new ObjectParameter("moneda", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_cheque", serieParameter, ingresoParameter, bancoParameter, cuentaParameter, estadoParameter, monedaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_cheque", serieParameter, ingresoParameter, bancoParameter, cuentaParameter, estadoParameter, monedaParameter);
         }
     
         public virtual ObjectResult<Nullable<decimal>> insert_cliente(string nit, string nombre, string telefono, string direccion, Nullable<int> codigo)
@@ -198,7 +198,7 @@ namespace PROYECTO_WEB.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual int sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
+        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
                 new ObjectParameter("diagramname", diagramname) :
@@ -208,10 +208,10 @@ namespace PROYECTO_WEB.Models
                 new ObjectParameter("owner_id", owner_id) :
                 new ObjectParameter("owner_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual int sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
+        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
                 new ObjectParameter("diagramname", diagramname) :
@@ -221,7 +221,7 @@ namespace PROYECTO_WEB.Models
                 new ObjectParameter("owner_id", owner_id) :
                 new ObjectParameter("owner_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
         }
     
         public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)

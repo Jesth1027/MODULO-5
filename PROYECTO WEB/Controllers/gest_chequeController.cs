@@ -12,7 +12,7 @@ namespace PROYECTO_WEB.Controllers
 {
     public class gest_chequeController : Controller
     {
-        private webEntities2 db = new webEntities2();
+        private webEntities1 db = new webEntities1();
 
         // GET: gest_cheque
         public ActionResult Index()
@@ -39,8 +39,8 @@ namespace PROYECTO_WEB.Controllers
         // GET: gest_cheque/Create
         public ActionResult Create()
         {
-            ViewBag.banco = new SelectList(db.asign_cheque_cp, "No_cuenta", "banco");
-            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "No_cuenta");
+            ViewBag.serie = new SelectList(db.asign_cheque_cp, "serie", "pago_a_orden");
+            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "banco");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace PROYECTO_WEB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "serie,ingreso,banco,cuenta,estado,moneda")] gest_cheque gest_cheque)
+        public ActionResult Create([Bind(Include = "serie,ingreso,cuenta,estado,moneda")] gest_cheque gest_cheque)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace PROYECTO_WEB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "serie,ingreso,banco,cuenta,estado,moneda")] gest_cheque gest_cheque)
+        public ActionResult Edit([Bind(Include = "serie,ingreso,cuenta,estado,moneda")] gest_cheque gest_cheque)
         {
             if (ModelState.IsValid)
             {

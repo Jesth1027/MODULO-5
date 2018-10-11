@@ -12,7 +12,7 @@ namespace PROYECTO_WEB.Controllers
 {
     public class usuariosController : Controller
     {
-        private webEntities2 db = new webEntities2();
+        private webEntities1 db = new webEntities1();
 
         // GET: usuarios
         public ActionResult Index()

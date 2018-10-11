@@ -13,7 +13,7 @@ namespace PROYECTO_WEB.Controllers
 {
     public class gest_clienteController : Controller
     {
-        private webEntities2 db = new webEntities2();
+        private webEntities1 db = new webEntities1();
 
         // GET: gest_cliente
         public ActionResult Index()

@@ -10,17 +10,13 @@
 namespace PROYECTO_WEB.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class gest_cheque
+    public partial class sp_helpdiagrams_Result
     {
-        public int serie { get; set; }
-        public Nullable<System.DateTime> ingreso { get; set; }
-        public string cuenta { get; set; }
-        public string estado { get; set; }
-        public string moneda { get; set; }
-    
-        public virtual asign_cheque_cp asign_cheque_cp { get; set; }
-        public virtual gest_cuenta gest_cuenta { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }
