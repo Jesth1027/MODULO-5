@@ -59,7 +59,7 @@ namespace PROYECTO_WEB.Controllers
             }
 
             ViewBag.serie = new SelectList(db.asign_cheque_cp, "serie", "pago_a_orden", gest_cheque.serie);
-            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "banco", gest_cheque.cuenta);
+            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "No_cuenta", gest_cheque.cuenta);
             return View(gest_cheque);
         }
 

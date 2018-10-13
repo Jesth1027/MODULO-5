@@ -156,8 +156,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\gest_chequeController.cs" />
-    <Compile Include="Controllers\gest_clienteController.cs" />
-    <Compile Include="Controllers\gest_cuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -275,6 +273,7 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -311,10 +310,7 @@
     <Content Include="Views\usuarios\Edit.cshtml" />
     <Content Include="Views\usuarios\Index.cshtml" />
     <Content Include="Views\gest_cheque\Create.cshtml" />
-    <Content Include="Views\gest_cheque\Delete.cshtml" />
     <Content Include="Views\gest_cheque\Details.cshtml" />
-    <Content Include="Views\gest_cheque\Edit.cshtml" />
-    <Content Include="Views\gest_cheque\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,6 +20,10 @@ namespace PROYECTO_WEB.Controllers
             return View(db.usuario.ToList());
         }
 
+
+
+
+
         // GET: usuarios/Details/5
         public ActionResult Details(int? id)
         {

@@ -31,6 +31,7 @@ namespace PROYECTO_WEB.Controllers
         public ActionResult Login([Bind(Include = "usuario1,password")] usuario usuario)
         {
             buscar_user_Result u = db.buscar_user(usuario.usuario1, usuario.password).FirstOrDefault();
+            
 
             
 
@@ -46,13 +47,27 @@ namespace PROYECTO_WEB.Controllers
             return View("menu");//redirigir a vista con layout menu
         }
 
-  
+
 
         //
 
+        //insertar
+        //try
+        //{
+        //    usuario.id = 2;
+        //    usuario.nombre = "Tarzan";
+        //    usuario.puesto = "Rey de la selva";
+
+        //    db.usuario.Add(usuario);
+        //    db.SaveChanges();
+        //}
+        //catch (Exception ex)
+        //{
+        //    ModelState.AddModelError("Eror", ex.Message);
+        //    return View();
+        //
 
 
-   
 
 
     }
