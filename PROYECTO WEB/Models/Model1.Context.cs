@@ -40,6 +40,7 @@ namespace PROYECTO_WEB.Models
         public virtual DbSet<nota_debito_cc> nota_debito_cc { get; set; }
         public virtual DbSet<nota_debito_cp> nota_debito_cp { get; set; }
         public virtual DbSet<saldos> saldos { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
     
         public virtual ObjectResult<buscar_user_Result> buscar_user(string user, string pass)
@@ -55,7 +56,7 @@ namespace PROYECTO_WEB.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<buscar_user_Result>("buscar_user", userParameter, passParameter);
         }
     
-        public virtual int insert_cheque(Nullable<int> serie, Nullable<System.DateTime> ingreso, string banco, string cuenta, string estado, string moneda)
+        public virtual ObjectResult<Nullable<decimal>> insert_cheque(Nullable<int> serie, Nullable<System.DateTime> ingreso, string cuenta, string estado, string moneda)
         {
             var serieParameter = serie.HasValue ?
                 new ObjectParameter("serie", serie) :
@@ -64,10 +65,6 @@ namespace PROYECTO_WEB.Models
             var ingresoParameter = ingreso.HasValue ?
                 new ObjectParameter("ingreso", ingreso) :
                 new ObjectParameter("ingreso", typeof(System.DateTime));
-    
-            var bancoParameter = banco != null ?
-                new ObjectParameter("banco", banco) :
-                new ObjectParameter("banco", typeof(string));
     
             var cuentaParameter = cuenta != null ?
                 new ObjectParameter("cuenta", cuenta) :
@@ -81,7 +78,7 @@ namespace PROYECTO_WEB.Models
                 new ObjectParameter("moneda", moneda) :
                 new ObjectParameter("moneda", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_cheque", serieParameter, ingresoParameter, bancoParameter, cuentaParameter, estadoParameter, monedaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_cheque", serieParameter, ingresoParameter, cuentaParameter, estadoParameter, monedaParameter);
         }
     
         public virtual ObjectResult<Nullable<decimal>> insert_cliente(string nit, string nombre, string telefono, string direccion, Nullable<int> codigo)

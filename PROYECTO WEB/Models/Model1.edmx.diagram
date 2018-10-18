@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="142a5cec1b1e4be0995d223efd85ee20" Name="Diagram1">
+      <Diagram DiagramId="7b887717dd764b938c3b0a2ce2241f36" Name="Diagram1">
         <EntityTypeShape EntityType="webModel.asign_cheque_cp" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="webModel.desposito" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="webModel.gest_cheque" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
@@ -18,6 +18,7 @@
         <EntityTypeShape EntityType="webModel.nota_debito_cc" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="webModel.nota_debito_cp" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="webModel.saldos" Width="1.5" PointX="10.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="webModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="webModel.usuario" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
         <AssociationConnector Association="webModel.FK_asign_cheque_cp_gest_cheque" ManuallyRouted="false" />
         <AssociationConnector Association="webModel.FK_asign_cheque_cp_usuario" ManuallyRouted="false" />

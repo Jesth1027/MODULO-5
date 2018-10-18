@@ -49,25 +49,6 @@ namespace PROYECTO_WEB.Controllers
 
 
 
-        //
-
-        //insertar
-        //try
-        //{
-        //    usuario.id = 2;
-        //    usuario.nombre = "Tarzan";
-        //    usuario.puesto = "Rey de la selva";
-
-        //    db.usuario.Add(usuario);
-        //    db.SaveChanges();
-        //}
-        //catch (Exception ex)
-        //{
-        //    ModelState.AddModelError("Eror", ex.Message);
-        //    return View();
-        //
-
-
 
 
     }

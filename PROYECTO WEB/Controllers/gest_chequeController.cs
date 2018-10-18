@@ -40,7 +40,7 @@ namespace PROYECTO_WEB.Controllers
         public ActionResult Create()
         {
             ViewBag.serie = new SelectList(db.asign_cheque_cp, "serie", "pago_a_orden");
-            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "banco");
+            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "No_cuenta");
             return View();
         }
 
@@ -53,9 +53,10 @@ namespace PROYECTO_WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.gest_cheque.Add(gest_cheque);
+                db.insert_cheque(gest_cheque.serie, gest_cheque.ingreso, gest_cheque.cuenta,gest_cheque.estado,gest_cheque.moneda);
+            
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
 
             ViewBag.serie = new SelectList(db.asign_cheque_cp, "serie", "pago_a_orden", gest_cheque.serie);

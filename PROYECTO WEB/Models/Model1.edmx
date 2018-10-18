@@ -151,6 +151,16 @@
           <Property Name="c_deposito" Type="int" />
           <Property Name="c_transferencia" Type="int" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="usuario">
           <Key>
             <PropertyRef Name="id" />
@@ -445,7 +455,6 @@
         <Function Name="insert_cheque" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="serie" Type="int" Mode="In" />
           <Parameter Name="ingreso" Type="date" Mode="In" />
-          <Parameter Name="banco" Type="varchar" Mode="In" />
           <Parameter Name="cuenta" Type="nvarchar" Mode="In" />
           <Parameter Name="estado" Type="varchar" Mode="In" />
           <Parameter Name="moneda" Type="varchar" Mode="In" />
@@ -511,6 +520,7 @@
           <EntitySet Name="nota_debito_cc" EntityType="Self.nota_debito_cc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="nota_debito_cp" EntityType="Self.nota_debito_cp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="saldos" EntityType="Self.saldos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_asign_cheque_cp_gest_cheque" Association="Self.FK_asign_cheque_cp_gest_cheque">
             <End Role="gest_cheque" EntitySet="gest_cheque" />
@@ -794,6 +804,16 @@
           <NavigationProperty Name="mov_trasf_cuenta" Relationship="Self.FK_saldos_mov_trasf_cuenta" FromRole="saldos" ToRole="mov_trasf_cuenta" />
           <NavigationProperty Name="nota_debito_cc" Relationship="Self.FK_saldos_nota_debito_cc" FromRole="saldos" ToRole="nota_debito_cc" />
           <NavigationProperty Name="nota_debito_cp" Relationship="Self.FK_saldos_nota_debito_cp" FromRole="saldos" ToRole="nota_debito_cp" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -1102,6 +1122,7 @@
           <EntitySet Name="nota_debito_cc" EntityType="Self.nota_debito_cc" />
           <EntitySet Name="nota_debito_cp" EntityType="Self.nota_debito_cp" />
           <EntitySet Name="saldos" EntityType="Self.saldos" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="usuario" EntityType="Self.usuario" />
           <AssociationSet Name="FK_asign_cheque_cp_gest_cheque" Association="Self.FK_asign_cheque_cp_gest_cheque">
             <End Role="gest_cheque" EntitySet="gest_cheque" />
@@ -1199,10 +1220,9 @@
             <Parameter Name="user" Mode="In" Type="String" />
             <Parameter Name="pass" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="insert_cheque">
+          <FunctionImport Name="insert_cheque" ReturnType="Collection(Decimal)">
             <Parameter Name="serie" Mode="In" Type="Int32" />
             <Parameter Name="ingreso" Mode="In" Type="DateTime" />
-            <Parameter Name="banco" Mode="In" Type="String" />
             <Parameter Name="cuenta" Mode="In" Type="String" />
             <Parameter Name="estado" Mode="In" Type="String" />
             <Parameter Name="moneda" Mode="In" Type="String" />
@@ -1435,6 +1455,17 @@
                 <ScalarProperty Name="c_venta" ColumnName="c_venta" />
                 <ScalarProperty Name="c_deposito" ColumnName="c_deposito" />
                 <ScalarProperty Name="c_transferencia" ColumnName="c_transferencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="webModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
