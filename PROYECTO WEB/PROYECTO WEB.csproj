@@ -156,6 +156,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\gest_chequeController.cs" />
+    <Compile Include="Controllers\gest_clienteController.cs" />
+    <Compile Include="Controllers\gest_cuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -317,6 +319,21 @@
     <Content Include="Views\gest_cheque\Details.cshtml" />
     <Content Include="Views\gest_cheque\Edit.cshtml" />
     <Content Include="Views\gest_cheque\Index.cshtml" />
+    <Content Include="Views\asign_cheque_cp\Create.cshtml" />
+    <Content Include="Views\asign_cheque_cp\Delete.cshtml" />
+    <Content Include="Views\asign_cheque_cp\Details.cshtml" />
+    <Content Include="Views\asign_cheque_cp\Edit.cshtml" />
+    <Content Include="Views\asign_cheque_cp\Index.cshtml" />
+    <Content Include="Views\gest_cliente\Create.cshtml" />
+    <Content Include="Views\gest_cliente\Delete.cshtml" />
+    <Content Include="Views\gest_cliente\Details.cshtml" />
+    <Content Include="Views\gest_cliente\Edit.cshtml" />
+    <Content Include="Views\gest_cliente\Index.cshtml" />
+    <Content Include="Views\gest_cuenta\Create.cshtml" />
+    <Content Include="Views\gest_cuenta\Delete.cshtml" />
+    <Content Include="Views\gest_cuenta\Details.cshtml" />
+    <Content Include="Views\gest_cuenta\Edit.cshtml" />
+    <Content Include="Views\gest_cuenta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

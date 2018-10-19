@@ -81,7 +81,7 @@ namespace PROYECTO_WEB.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_cheque", serieParameter, ingresoParameter, cuentaParameter, estadoParameter, monedaParameter);
         }
     
-        public virtual ObjectResult<Nullable<decimal>> insert_cliente(string nit, string nombre, string telefono, string direccion, Nullable<int> codigo)
+        public virtual ObjectResult<Nullable<decimal>> insert_cliente(string nit, string nombre, string telefono, string direccion, Nullable<int> codigo, Nullable<System.DateTime> fecha)
         {
             var nitParameter = nit != null ?
                 new ObjectParameter("nit", nit) :
@@ -103,10 +103,14 @@ namespace PROYECTO_WEB.Models
                 new ObjectParameter("codigo", codigo) :
                 new ObjectParameter("codigo", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_cliente", nitParameter, nombreParameter, telefonoParameter, direccionParameter, codigoParameter);
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("fecha", fecha) :
+                new ObjectParameter("fecha", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_cliente", nitParameter, nombreParameter, telefonoParameter, direccionParameter, codigoParameter, fechaParameter);
         }
     
-        public virtual ObjectResult<Nullable<decimal>> insert_cuenta(Nullable<int> correlativo, string no_cuenta, string banco, string tipo)
+        public virtual ObjectResult<Nullable<decimal>> insert_cuenta(Nullable<int> correlativo, string no_cuenta, string banco, string tipo, Nullable<System.DateTime> fecha)
         {
             var correlativoParameter = correlativo.HasValue ?
                 new ObjectParameter("correlativo", correlativo) :
@@ -124,7 +128,11 @@ namespace PROYECTO_WEB.Models
                 new ObjectParameter("tipo", tipo) :
                 new ObjectParameter("tipo", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_cuenta", correlativoParameter, no_cuentaParameter, bancoParameter, tipoParameter);
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("fecha", fecha) :
+                new ObjectParameter("fecha", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_cuenta", correlativoParameter, no_cuentaParameter, bancoParameter, tipoParameter, fechaParameter);
         }
     
         public virtual ObjectResult<Nullable<decimal>> insert_factura(Nullable<int> serie, Nullable<System.DateTime> estado)

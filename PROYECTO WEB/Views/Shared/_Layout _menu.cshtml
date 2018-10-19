@@ -127,9 +127,9 @@
                                  <li class="list-group-item pl-4">
                                       @Html.ActionLink("Ingreso", "Create", "gest_cheque")
                                  </li>
-                                <li class="list-group-item pl-4">
-                                    <a href="#">Asignación de Cheques</a>
-                                </li>
+                                 <li class="list-group-item pl-4">
+                                     @Html.ActionLink("Asignar Cheque", "Create", "asign_cheque_cp")
+                                 </li>
 
 
                             </ul>
@@ -143,12 +143,12 @@
 
 
                         <li class="list-group-item pl-4">
-                            <a href="">Deposito</a>
+                            <a href="">Cuenta</a>
 
                             <ul class="list-group flex-column d-inline-block sub-submenu">
                                 <span class="arrow" style="top:113px;"></span>
                                 <li class="list-group-item pl-4">
-                                    <a href="#">Ingreso de boleta</a>
+                                    @Html.ActionLink("Añadir Cuenta", "Create", "gest_cuenta")
 
                                 <li class="list-group-item pl-4">
                                     <a href="#">Saldos</a>
@@ -182,15 +182,15 @@
 
 
                 <li class="list-group-item pl-3 py-2">
-                    <a href="#"><i class="fa fa-user-o" aria-hidden="true"><span class="ml-2 align-middle">Diana  </span></i></a>
+                    <a href="#"><i class="fa fa-user-o" aria-hidden="true"><span class="ml-2 align-middle">Cuentas Por Cobrar  </span></i></a>
                     <ul class="list-group flex-column d-inline-block submenu">
                         <li class="list-group-item pl-4">
-                            <a href="#" class="">Eres Muy</a>
+                            <a href="#" class="">Clientes</a>
 
                             <ul class="list-group flex-column d-inline-block sub-submenu">
                                 <span class="arrow"></span>
                                 <li class="list-group-item pl-4">
-                                    <a href="#">Hermosa</a>
+                                    @Html.ActionLink("Agregar", "Create", "gest_cliente")
                                 </li>
                                 <li class="list-group-item pl-4">
                                     <a href="#">Lo sabias</a>
