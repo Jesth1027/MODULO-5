@@ -476,7 +476,8 @@
         </Function>
         <Function Name="insert_factura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="serie" Type="int" Mode="In" />
-          <Parameter Name="estado" Type="date" Mode="In" />
+          <Parameter Name="estado" Type="varchar" Mode="In" />
+          <Parameter Name="fecha" Type="date" Mode="In" />
         </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -1245,7 +1246,8 @@
           </FunctionImport>
           <FunctionImport Name="insert_factura" ReturnType="Collection(Decimal)">
             <Parameter Name="serie" Mode="In" Type="Int32" />
-            <Parameter Name="estado" Mode="In" Type="DateTime" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />

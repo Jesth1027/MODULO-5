@@ -52,9 +52,9 @@ namespace PROYECTO_WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.gest_factura.Add(gest_factura);
+                db.insert_factura(gest_factura.serie,gest_factura.estado,gest_factura.fecha);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
 
             ViewBag.serie = new SelectList(db.mov_factura_credito, "serie", "cancelado", gest_factura.serie);

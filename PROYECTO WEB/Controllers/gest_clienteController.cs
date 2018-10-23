@@ -14,11 +14,7 @@ namespace PROYECTO_WEB.Controllers
     {
         private webEntities1 db = new webEntities1();
 
-        // GET: gest_cliente
-        public ActionResult Index()
-        {
-            return View(db.gest_cliente.ToList());
-        }
+       
 
         // GET: gest_cliente/Details/5
         public ActionResult Details(int? id)

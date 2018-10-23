@@ -135,17 +135,21 @@ namespace PROYECTO_WEB.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_cuenta", correlativoParameter, no_cuentaParameter, bancoParameter, tipoParameter, fechaParameter);
         }
     
-        public virtual ObjectResult<Nullable<decimal>> insert_factura(Nullable<int> serie, Nullable<System.DateTime> estado)
+        public virtual ObjectResult<Nullable<decimal>> insert_factura(Nullable<int> serie, string estado, Nullable<System.DateTime> fecha)
         {
             var serieParameter = serie.HasValue ?
                 new ObjectParameter("serie", serie) :
                 new ObjectParameter("serie", typeof(int));
     
-            var estadoParameter = estado.HasValue ?
+            var estadoParameter = estado != null ?
                 new ObjectParameter("estado", estado) :
-                new ObjectParameter("estado", typeof(System.DateTime));
+                new ObjectParameter("estado", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_factura", serieParameter, estadoParameter);
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("fecha", fecha) :
+                new ObjectParameter("fecha", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_factura", serieParameter, estadoParameter, fechaParameter);
         }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
