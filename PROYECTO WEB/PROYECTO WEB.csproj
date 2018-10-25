@@ -155,10 +155,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\despositoesController.cs" />
     <Compile Include="Controllers\gest_chequeController.cs" />
     <Compile Include="Controllers\gest_clienteController.cs" />
     <Compile Include="Controllers\gest_cuentaController.cs" />
     <Compile Include="Controllers\gest_facturaController.cs" />
+    <Compile Include="Controllers\gest_proveedorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -340,6 +342,16 @@
     <Content Include="Views\gest_factura\Details.cshtml" />
     <Content Include="Views\gest_factura\Edit.cshtml" />
     <Content Include="Views\gest_factura\Index.cshtml" />
+    <Content Include="Views\gest_proveedor\Create.cshtml" />
+    <Content Include="Views\gest_proveedor\Delete.cshtml" />
+    <Content Include="Views\gest_proveedor\Details.cshtml" />
+    <Content Include="Views\gest_proveedor\Edit.cshtml" />
+    <Content Include="Views\gest_proveedor\Index.cshtml" />
+    <Content Include="Views\despositoes\Create.cshtml" />
+    <Content Include="Views\despositoes\Delete.cshtml" />
+    <Content Include="Views\despositoes\Details.cshtml" />
+    <Content Include="Views\despositoes\Edit.cshtml" />
+    <Content Include="Views\despositoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -254,5 +254,59 @@ namespace PROYECTO_WEB.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> insert_proveedor(string nit, string nombre, string telefono, string direccion, Nullable<int> codigo)
+        {
+            var nitParameter = nit != null ?
+                new ObjectParameter("nit", nit) :
+                new ObjectParameter("nit", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("telefono", telefono) :
+                new ObjectParameter("telefono", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("direccion", direccion) :
+                new ObjectParameter("direccion", typeof(string));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("codigo", codigo) :
+                new ObjectParameter("codigo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_proveedor", nitParameter, nombreParameter, telefonoParameter, direccionParameter, codigoParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> insert_deposito(Nullable<int> serie, Nullable<System.DateTime> fecha, Nullable<decimal> total, string cuenta, Nullable<System.DateTime> fechasis, Nullable<int> user)
+        {
+            var serieParameter = serie.HasValue ?
+                new ObjectParameter("serie", serie) :
+                new ObjectParameter("serie", typeof(int));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("fecha", fecha) :
+                new ObjectParameter("fecha", typeof(System.DateTime));
+    
+            var totalParameter = total.HasValue ?
+                new ObjectParameter("total", total) :
+                new ObjectParameter("total", typeof(decimal));
+    
+            var cuentaParameter = cuenta != null ?
+                new ObjectParameter("cuenta", cuenta) :
+                new ObjectParameter("cuenta", typeof(string));
+    
+            var fechasisParameter = fechasis.HasValue ?
+                new ObjectParameter("fechasis", fechasis) :
+                new ObjectParameter("fechasis", typeof(System.DateTime));
+    
+            var userParameter = user.HasValue ?
+                new ObjectParameter("user", user) :
+                new ObjectParameter("user", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("insert_deposito", serieParameter, fechaParameter, totalParameter, cuentaParameter, fechasisParameter, userParameter);
+        }
     }
 }

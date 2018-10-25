@@ -20,7 +20,7 @@
           <Key>
             <PropertyRef Name="correlativo" />
           </Key>
-          <Property Name="correlativo" Type="int" Nullable="false" />
+          <Property Name="correlativo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="serie" Type="int" />
           <Property Name="fecha" Type="date" />
           <Property Name="total" Type="decimal" Precision="18" Scale="0" />
@@ -474,10 +474,25 @@
           <Parameter Name="tipo" Type="nvarchar" Mode="In" />
           <Parameter Name="fecha" Type="date" Mode="In" />
         </Function>
+        <Function Name="insert_deposito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serie" Type="int" Mode="In" />
+          <Parameter Name="fecha" Type="date" Mode="In" />
+          <Parameter Name="total" Type="decimal" Mode="In" />
+          <Parameter Name="cuenta" Type="nvarchar" Mode="In" />
+          <Parameter Name="fechasis" Type="date" Mode="In" />
+          <Parameter Name="user" Type="int" Mode="In" />
+        </Function>
         <Function Name="insert_factura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="serie" Type="int" Mode="In" />
           <Parameter Name="estado" Type="varchar" Mode="In" />
           <Parameter Name="fecha" Type="date" Mode="In" />
+        </Function>
+        <Function Name="insert_proveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nit" Type="nvarchar" Mode="In" />
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="telefono" Type="nvarchar" Mode="In" />
+          <Parameter Name="direccion" Type="nvarchar" Mode="In" />
+          <Parameter Name="codigo" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -1279,6 +1294,21 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="insert_proveedor" ReturnType="Collection(Decimal)">
+            <Parameter Name="nit" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+            <Parameter Name="direccion" Mode="In" Type="String" />
+            <Parameter Name="codigo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insert_deposito" ReturnType="Collection(Decimal)">
+            <Parameter Name="serie" Mode="In" Type="Int32" />
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="total" Mode="In" Type="Decimal" />
+            <Parameter Name="cuenta" Mode="In" Type="String" />
+            <Parameter Name="fechasis" Mode="In" Type="DateTime" />
+            <Parameter Name="user" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="buscar_user_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -1524,6 +1554,8 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="webModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="webModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="insert_proveedor" FunctionName="webModel.Store.insert_proveedor" />
+          <FunctionImportMapping FunctionImportName="insert_deposito" FunctionName="webModel.Store.insert_deposito" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
