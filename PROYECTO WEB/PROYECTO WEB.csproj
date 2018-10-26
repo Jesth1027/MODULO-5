@@ -155,6 +155,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\asign_cheque_cpController.cs" />
     <Compile Include="Controllers\despositoesController.cs" />
     <Compile Include="Controllers\gest_chequeController.cs" />
     <Compile Include="Controllers\gest_clienteController.cs" />
@@ -322,11 +323,6 @@
     <Content Include="Views\gest_cheque\Details.cshtml" />
     <Content Include="Views\gest_cheque\Edit.cshtml" />
     <Content Include="Views\gest_cheque\Index.cshtml" />
-    <Content Include="Views\asign_cheque_cp\Create.cshtml" />
-    <Content Include="Views\asign_cheque_cp\Delete.cshtml" />
-    <Content Include="Views\asign_cheque_cp\Details.cshtml" />
-    <Content Include="Views\asign_cheque_cp\Edit.cshtml" />
-    <Content Include="Views\asign_cheque_cp\Index.cshtml" />
     <Content Include="Views\gest_cliente\Create.cshtml" />
     <Content Include="Views\gest_cliente\Delete.cshtml" />
     <Content Include="Views\gest_cliente\Details.cshtml" />
@@ -352,6 +348,11 @@
     <Content Include="Views\despositoes\Details.cshtml" />
     <Content Include="Views\despositoes\Edit.cshtml" />
     <Content Include="Views\despositoes\Index.cshtml" />
+    <Content Include="Views\asign_cheque_cp\Create.cshtml" />
+    <Content Include="Views\asign_cheque_cp\Delete.cshtml" />
+    <Content Include="Views\asign_cheque_cp\Details.cshtml" />
+    <Content Include="Views\asign_cheque_cp\Edit.cshtml" />
+    <Content Include="Views\asign_cheque_cp\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,124 +10,116 @@ using PROYECTO_WEB.Models;
 
 namespace PROYECTO_WEB.Controllers
 {
-    public class despositoesController : Controller
+    public class asign_cheque_cpController : Controller
     {
         private webEntities1 db = new webEntities1();
 
-        // GET: despositoes
+        // GET: asign_cheque_cp
         public ActionResult Index()
         {
-            var desposito = db.desposito.Include(d => d.gest_cuenta).Include(d => d.usuario);
-            return View(desposito.ToList());
+            var asign_cheque_cp = db.asign_cheque_cp.Include(a => a.gest_cheque).Include(a => a.usuario);
+            return View(asign_cheque_cp.ToList());
         }
 
-        // GET: despositoes/Details/5
+        // GET: asign_cheque_cp/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            desposito desposito = db.desposito.Find(id);
-            if (desposito == null)
+            asign_cheque_cp asign_cheque_cp = db.asign_cheque_cp.Find(id);
+            if (asign_cheque_cp == null)
             {
                 return HttpNotFound();
             }
-            return View(desposito);
+            return View(asign_cheque_cp);
         }
 
-        // GET: despositoes/Create
+        // GET: asign_cheque_cp/Create
         public ActionResult Create()
         {
-            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "No_cuenta");
+            ViewBag.serie = new SelectList(db.gest_cheque, "serie", "cuenta");
             ViewBag.id_user = new SelectList(db.usuario, "id", "nombre");
             return View();
         }
 
-        // POST: despositoes/Create
+        // POST: asign_cheque_cp/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "serie,fecha,total,cuenta,fecha_sistema,id_user")] desposito desposito)
+        public ActionResult Create([Bind(Include = "correlativo,serie,cantidad,fecha,pago_a_orden,id_user")] asign_cheque_cp asign_cheque_cp)
         {
             if (ModelState.IsValid)
             {
-                DateTime Hoy = DateTime.Today;
-
-                string fecha_actual = Hoy.ToString("dd-MM-yyyy");
-                desposito.fecha_sistema = DateTime.Parse(fecha_actual);
-
-
-                desposito.id_user = Convert.ToInt32( Session["id"]);
-
-                db.insert_deposito(desposito.serie, desposito.fecha, desposito.total, desposito.cuenta, desposito.fecha_sistema, desposito.id_user);
+                db.asign_cheque_cp.Add(asign_cheque_cp);
                 db.SaveChanges();
-                return RedirectToAction("Create");
+                return RedirectToAction("Index");
             }
 
-            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "No_cuenta", desposito.cuenta);
-         
-            return View(desposito);
+            ViewBag.serie = new SelectList(db.gest_cheque, "serie", "cuenta", asign_cheque_cp.serie);
+            ViewBag.id_user = new SelectList(db.usuario, "id", "nombre", asign_cheque_cp.id_user);
+            return View(asign_cheque_cp);
         }
 
-        // GET: despositoes/Edit/5
+        // GET: asign_cheque_cp/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            desposito desposito = db.desposito.Find(id);
-            if (desposito == null)
+            asign_cheque_cp asign_cheque_cp = db.asign_cheque_cp.Find(id);
+            if (asign_cheque_cp == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "banco", desposito.cuenta);
-            ViewBag.id_user = new SelectList(db.usuario, "id", "nombre", desposito.id_user);
-            return View(desposito);
+            ViewBag.serie = new SelectList(db.gest_cheque, "serie", "cuenta", asign_cheque_cp.serie);
+            ViewBag.id_user = new SelectList(db.usuario, "id", "nombre", asign_cheque_cp.id_user);
+            return View(asign_cheque_cp);
         }
 
-        // POST: despositoes/Edit/5
+        // POST: asign_cheque_cp/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "correlativo,serie,fecha,total,cuenta,fecha_sistema,id_user")] desposito desposito)
+        public ActionResult Edit([Bind(Include = "correlativo,serie,cantidad,fecha,pago_a_orden,id_user")] asign_cheque_cp asign_cheque_cp)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(desposito).State = EntityState.Modified;
+                db.Entry(asign_cheque_cp).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.cuenta = new SelectList(db.gest_cuenta, "No_cuenta", "No_cuenta", desposito.cuenta);
-           
-            return View(desposito);
+            ViewBag.serie = new SelectList(db.gest_cheque, "serie", "cuenta", asign_cheque_cp.serie);
+            ViewBag.id_user = new SelectList(db.usuario, "id", "nombre", asign_cheque_cp.id_user);
+            return View(asign_cheque_cp);
         }
 
-        // GET: despositoes/Delete/5
+        // GET: asign_cheque_cp/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            desposito desposito = db.desposito.Find(id);
-            if (desposito == null)
+            asign_cheque_cp asign_cheque_cp = db.asign_cheque_cp.Find(id);
+            if (asign_cheque_cp == null)
             {
                 return HttpNotFound();
             }
-            return View(desposito);
+            return View(asign_cheque_cp);
         }
 
-        // POST: despositoes/Delete/5
+        // POST: asign_cheque_cp/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            desposito desposito = db.desposito.Find(id);
-            db.desposito.Remove(desposito);
+            asign_cheque_cp asign_cheque_cp = db.asign_cheque_cp.Find(id);
+            db.asign_cheque_cp.Remove(asign_cheque_cp);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
